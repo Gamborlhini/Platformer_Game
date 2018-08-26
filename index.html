@@ -46,7 +46,6 @@
   var starting=false;
    var collision=false;
    var collision2=false;
-  var collision3=false;
   var collision4=false;
   var collision5=false;
   var collision6=false;
@@ -160,16 +159,6 @@
     	collision2=true
   	}
    return collision2;
-  }
-  function CollisionDetection3(b,a){
-	collision3=false;
-	if(x+20<a.x+a.width&&
-  	y+20<a.y+a.height&&
-  	b.height+y+20>a.y&&
-  	x+20+b.width>a.x){
-    	collision3=true
-  	}
-   return collision3;
   }
   function CollisionDetection4(b,a){
 	collision4=false;
@@ -500,7 +489,7 @@
 	return setInterval(draw,2)
   }
   function falling(){
-  if(collision==false&&collision3==false){
+  if(collision==false){
 	y+=z;
 	orb.y+=z;
 	orb2.y+=z;
@@ -513,7 +502,7 @@
   }
   }
   function doubleJump(){
-	if(collision===true||collision3===true){
+	if(collision===true){
   	jumpNumber=0;
 	}
   }
@@ -560,7 +549,7 @@
   function doKeyDown(a){
 	switch(a.keyCode){
   	case 87:
-    	if(/*jumpNumber<1*/collision===true||collision3===true||collision13===true){
+    	if(/*jumpNumber<1*/collision===true||collision13===true){
     	y-=dy;
     	orb.y-=dy;
     	orb2.y-=dy;
@@ -762,7 +751,7 @@ function draw(){
     renderObjectmaster(object2);
     RenderLoadingscreen();
 	CollisionDetection(player[0],object);
-	CollisionDetection3(player[0],object4);
+	CollisionDetection(player[0],object4);
 	CollisionDetection2(player[0],object3);
 	CollisionDetection4(player[0],object5);
 	CollisionDetection5(player[0],object6);
