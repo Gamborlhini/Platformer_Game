@@ -47,6 +47,12 @@
    var collision=false;
    var collision2=false;
   var collision3=false;
+  var collision4=false;
+  var collision5=false;
+  var collision6=false;
+  var collision7=false;
+  var collision8=false;
+  var collision9=false;
   var collision10=false;
   var collision11=false;
   var collision12=false;
@@ -164,6 +170,66 @@
     	collision3=true
   	}
    return collision3;
+  }
+  function CollisionDetection4(b,a){
+	collision4=false;
+	if(x+20<a.x+a.width&&
+  	y+20<a.y+a.height&&
+  	b.height+y+20>a.y&&
+  	x+20+b.width>a.x){
+    	collision4=true
+  	}
+   return collision4;
+  }
+  function CollisionDetection5(b,a){
+	collision5=false;
+	if(x+20<a.x+a.width&&
+  	y+20<a.y+a.height&&
+  	b.height+y+20>a.y&&
+  	x+20+b.width>a.x){
+    	collision5=true
+  	}
+   return collision5;
+  }
+  function CollisionDetection6(b,a){
+	collision6=false;
+	if(x+20<a.x+a.width&&
+  	y+20<a.y+a.height&&
+  	b.height+y+20>a.y&&
+  	x+20+b.width>a.x){
+    	collision6=true
+  	}
+   return collision6;
+  }
+  function CollisionDetection7(b,a){
+	collision7=false;
+	if(x+20<a.x+a.width&&
+  	y+20<a.y+a.height&&
+  	b.height+y+20>a.y&&
+  	x+20+b.width>a.x){
+    	collision7=true
+  	}
+   return collision7;
+  }
+  function CollisionDetection8(b,a){
+	collision8=false;
+	if(x+20<a.x+a.width&&
+  	y+20<a.y+a.height&&
+  	b.height+y+20>a.y&&
+  	x+20+b.width>a.x){
+    	collision8=true
+  	}
+   return collision8;
+  }
+  function CollisionDetection9(b,a){
+	collision9=false;
+	if(x+20<a.x+a.width&&
+  	y+20<a.y+a.height&&
+  	b.height+y+20>a.y&&
+  	x+20+b.width>a.x){
+    	collision9=true
+  	}
+   return collision9;
   }
   function CollisionDetection10(b,a){
 	collision10=false;
@@ -460,10 +526,10 @@
 	}
   }
   function moveUp(){
-	if(collision2===true){
+	if(collision2===true||collision4===true||collision5===true||collision6===true||collision7===true||collision8===true||collision9===true){
   	speedUp-=1;
 	}
-	if(collision2===true){
+	if(collision2===true||collision4===true||collision5===true||collision6===true||collision7===true||collision8===true||collision9===true){
   	y+=speedUp;
   	orb.y+=speedUp;
   	orb2.y+=speedUp;
@@ -471,7 +537,7 @@
   	bubble.y+=speedUp;
   	}
 	}
-	if(collision2==false){
+	if(collision2==false&&collision4==false&&collision5==false&&collision6==false&&collision7==false&&collision8==false&&collision9==false){
   	speedUp=0;
 	}
   }
@@ -698,12 +764,12 @@ function draw(){
 	CollisionDetection(player[0],object);
 	CollisionDetection3(player[0],object4);
 	CollisionDetection2(player[0],object3);
-	CollisionDetection2(player[0],object5);
-	CollisionDetection2(player[0],object6);
-	CollisionDetection2(player[0],object7);
-	CollisionDetection2(player[0],object8);
-	CollisionDetection2(player[0],object9);
-	CollisionDetection2(player[0],object10);
+	CollisionDetection4(player[0],object5);
+	CollisionDetection5(player[0],object6);
+	CollisionDetection6(player[0],object7);
+	CollisionDetection7(player[0],object8);
+	CollisionDetection8(player[0],object9);
+	CollisionDetection9(player[0],object10);
 	CollisionDetection10(player[0],object11);
 	CollisionDetection11(player[0],object12);
 	CollisionDetection12(player[0],object13);
