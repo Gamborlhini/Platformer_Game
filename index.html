@@ -3,13 +3,12 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width">
-<title>Platformer Game</title>
+<title>JS Bin</title>
 </head>
 <body>
-<canvas id=canvas width=2000 height=500 style="border:1px solid #000">
+<canvas id=canvas width=1000 height=500 style="border:1px solid #000">
 </canvas>
 <script>
-//Did it go through
   var canvas;
   var ctx;
   var dx=5;
@@ -47,6 +46,7 @@
   var starting=false;
    var collision=false;
    var collision2=false;
+  var collision3=false;
   var collision4=false;
   var collision5=false;
   var collision6=false;
@@ -79,7 +79,6 @@
   var collision33=false;
   var collision34=false;
   var collision35=false;
-  var collision36=false;
 	var background={height:1500,width:1500,x:0,y:0,color:"green"};
   var object={height:5,width:360,x:0,y:200,color:"black"};
   var object2={height:2000, width:600, x:-5,y:-2000,color:"black"};
@@ -160,6 +159,16 @@
     	collision2=true
   	}
    return collision2;
+  }
+  function CollisionDetection3(b,a){
+	collision3=false;
+	if(x+20<a.x+a.width&&
+  	y+20<a.y+a.height&&
+  	b.height+y+20>a.y&&
+  	x+20+b.width>a.x){
+    	collision3=true
+  	}
+   return collision3;
   }
   function CollisionDetection4(b,a){
 	collision4=false;
@@ -490,13 +499,12 @@
 	return setInterval(draw,2)
   }
   function falling(){
-  if(collision==false){
+  if(collision==false&&collision3==false){
 	y+=z;
 	orb.y+=z;
 	orb2.y+=z;
 	if(movable==false){
 	bubble.y+=z;
-  collision = false;
   	}
 	}
   if(collision30==false){
@@ -504,9 +512,8 @@
   }
   }
   function doubleJump(){
-	if(collision===true){
+	if(collision===true||collision3===true){
   	jumpNumber=0;
-    collision = false;
 	}
   }
   function moveToSide(){
@@ -552,14 +559,12 @@
   function doKeyDown(a){
 	switch(a.keyCode){
   	case 87:
-    	if(/*jumpNumber<1*/collision===true||collision13===true){
+    	if(/*jumpNumber<1*/collision===true||collision3===true||collision13===true){
     	y-=dy;
     	orb.y-=dy;
     	orb2.y-=dy;
     	if(movable==false){
     	bubble.y-=dy;
-      collision = false;
-      collision13 = false;
     	}
     	jumpNumber+=xx;
 	}
@@ -756,7 +761,7 @@ function draw(){
     renderObjectmaster(object2);
     RenderLoadingscreen();
 	CollisionDetection(player[0],object);
-	CollisionDetection(player[0],object4);
+	CollisionDetection3(player[0],object4);
 	CollisionDetection2(player[0],object3);
 	CollisionDetection4(player[0],object5);
 	CollisionDetection5(player[0],object6);
@@ -770,20 +775,20 @@ function draw(){
 	CollisionDetection13(player[0],object16);
 	CollisionDetection14(player[0],object17);
 	CollisionDetection15(bubble,object13);
-	CollisionDetection15(bubble,object);
-	CollisionDetection15(bubble,object4);
-	CollisionDetection15(bubble,object3);
-	CollisionDetection15(bubble,object5);
-	CollisionDetection15(bubble,object6);
-	CollisionDetection15(bubble,object7);
-	CollisionDetection15(bubble,object8);
-	CollisionDetection15(bubble,object9);
-	CollisionDetection15(bubble,object10);
-	CollisionDetection15(bubble,object11);
-	CollisionDetection15(bubble,object12);
-	CollisionDetection15(bubble,object13);
-	CollisionDetection15(bubble,object16);
-	CollisionDetection15(bubble,object17);
+	CollisionDetection16(bubble,object);
+	CollisionDetection17(bubble,object4);
+	CollisionDetection18(bubble,object3);
+	CollisionDetection19(bubble,object5);
+	CollisionDetection20(bubble,object6);
+	CollisionDetection21(bubble,object7);
+	CollisionDetection22(bubble,object8);
+	CollisionDetection23(bubble,object9);
+	CollisionDetection24(bubble,object10);
+	CollisionDetection25(bubble,object11);
+	CollisionDetection26(bubble,object12);
+	CollisionDetection27(bubble,object13);
+	CollisionDetection28(bubble,object16);
+	CollisionDetection29(bubble,object17);
 	CollisionDetection30(enemy,object4);
 	CollisionDetection31(player[0],enemy);
 	CollisionDetection32(bubble,enemy);
