@@ -46,7 +46,6 @@ function doKeyUp(a) {
     case 68:
       velocity=0;
       break;
-
   }
 }
 function doKeyDown(a){
@@ -80,7 +79,7 @@ function doKeyDown(a){
         break;
       case 87:
       if (collision==false&&y>0) {
-        y=y-dy;
+        y-=dy;
       }
       else {
         console.log("we got a hit");
