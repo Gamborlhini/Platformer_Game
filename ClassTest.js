@@ -1,6 +1,6 @@
 var canvas,fireyes, ctx, sx = 0, x = 0, y = 0, dx = 5, dy = 20, direction = "right";
 var rect, shooting = false, velocity=0, speedside = 2, gravityspeed=2, velocityup=0, char, groundclass, collision = false,grounded=false, imageObj = new Image();
-imageObj.src="Capture.JPG";
+imageObj.src="Right.JPG";
 var ground = {height:10,width:1000,x:0,y:490,color:"brown"};
 canvas=document.getElementById("canvas");
 ctx=canvas.getContext("2d");
@@ -127,6 +127,7 @@ function doKeyDown(a){
       if (collision==false&&x>0) {
         	velocity=-speedside;
           direction = "left";
+          imageObj.src = "Left.JPG";
           //player=playerLeft;
       }
       else{
@@ -137,6 +138,7 @@ function doKeyDown(a){
       if (collision==false&&x<980) {
         velocity=speedside;
         direction = "right";
+        imageObj.src = "Right.JPG";
           //x=x+dx
           //player=playerRight;
       }
