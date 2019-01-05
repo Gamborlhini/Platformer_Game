@@ -1,5 +1,5 @@
 var canvas, ctx, x = 0, y = 0, dx = 5, dy = 20;
-var rect,gravityspeed=2, char, groundclass, collision = false,grounded=false, imageObj = new Image();
+var rect,velocity=0, speedside = 2, gravityspeed=2, char, groundclass, collision = false,grounded=false, imageObj = new Image();
 imageObj.src="Capture.JPG";
 
 var rect1simple = {height:10,width:10,x:11,y:11,color:"purple"};
@@ -8,7 +8,7 @@ var ground = {height:10,width:1000,x:0,y:490,color:"brown"};
 canvas=document.getElementById("canvas");
 ctx=canvas.getContext("2d");
 console.log("canvas established");
-// BUG: You are always one block underneath the ground. I don't know if this is a groundDetect problem or gravity
+// BUG:  You are always one block underneath the ground. I don't know if this is a groundDetect problem or gravity
 // BUG: You can chain jump
 function gravity() {
   if (grounded==false&&collision==false) {
@@ -28,18 +28,32 @@ function drawNew() {
   groundclass.render();
   detectCollisions();
   gravity();
+  moveSide();
 }
 function detectCollisions() {
   rect.collisionDetect(rect1simple);
   rect.collisionDetect(rect2simple);
   rect.groundDetect(ground);
 }
-// OPTIMIZE: fix this with Shivam to smooth
+function moveSide() {
+  x+=velocity;
+}
+function doKeyUp(a) {
+  switch (a.keyCode) {
+    case 65:
+      velocity=0;
+      break;
+    case 68:
+      velocity=0;
+      break;
+
+  }
+}
 function doKeyDown(a){
     switch(a.keyCode){
     	case 65:/*left*/
       if (collision==false&&x>0) {
-        	x=x-dx;
+        	velocity=-speedside;
           //player=playerLeft;
       }
       else{
@@ -48,7 +62,8 @@ function doKeyDown(a){
       	break;
     	case 68:/*right*/
       if (collision==false&&x<990) {
-          x=x+dx
+        velocity=speedside;
+          //x=x+dx
           //player=playerRight;
       }
       else {
@@ -116,7 +131,7 @@ class character{
     }
   }
 }
-
+window.addEventListener("keyup",doKeyUp,true);
 window.addEventListener("keydown",doKeyDown,true);
 console.log("keydown established");
 setInterval(drawNew,16);
