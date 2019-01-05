@@ -1,4 +1,4 @@
-var canvas,fireyes, ctx, sx = 0, x = 450, y = 0, dx = 5, dy = 20, direction = "right";
+var canvas,fireyes, ctx, sx = 0, x = 0, y = 450, dx = 5, dy = 20, direction = "right";
 var rect, shooting = false, velocity=0, speedside = 2, gravityspeed=2, velocityup=0, char, groundclass, collision = false,grounded=false, imageObj = new Image();
 imageObj.src="Right.JPG";
 var ground = {height:10,width:1000,x:0,y:490,color:"brown"};
