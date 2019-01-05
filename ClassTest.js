@@ -8,7 +8,9 @@ var rect2simple = rect2[0];
 canvas=document.getElementById("canvas");
 ctx=canvas.getContext("2d");
 console.log("canvas established");
-
+function gravity() {
+  y+=1;
+}
 function drawNew() {
   rect = new rectangle(10,10,x,y,"purple");
   rect1render = new rectangle(rect1[0].height,rect1[0].width,rect1[0].x,rect1[0].y,rect1[0].color);
@@ -20,6 +22,7 @@ function drawNew() {
   rect2render.render();
   rect.collisionDetect(rect1[0]);
   rect.collisionDetect(rect2simple);
+  gravity();
 }
 // OPTIMIZE: fix this with Shivam to smooth
 function doKeyDown(a){
