@@ -1,5 +1,5 @@
 var canvas, ctx, x = 0, y = 0, dx = 5, dy = 5;
-var rect, char, collision = false, imageObj = new Image();
+var rect, char, collision = false,ground=false, imageObj = new Image();
 imageObj.src="Capture.JPG";
 
 var rect1 = [{height:10,width:10,x:11,y:11,color:"purple"}];
@@ -79,6 +79,14 @@ class rectangle {
     	this.x+this.width>other.x) {
         collision = true;
     }
+  }
+  groundDetect(groundblock){
+    if(this.x<other.x+other.width&&
+    	this.y<other.y+other.height&&
+    	this.height+this.y>other.y&&
+    	this.x+this.width>other.x){
+        ground=true;
+      }
   }
 }
 class character{
