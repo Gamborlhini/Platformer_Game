@@ -4,7 +4,7 @@ var rect, char, collision = false;
 var player = [ /*Eyes*/{height:10, width:5, x:x+20, y:y+10, color:"brown"},/*Mouth*/ {height:5, width:20, x:x+5, y:y+25, color:"brown"}, /*Nose*/{height:5, width:5, x:x+15, y:y+20, color:"brown"}, /*Back Hair*/{height:5, width:15, x:x+40, y:y+10, color:"brown"}, {height:10, width:5, x:x+45, y:y+15, color:"brown"}, {height:10, width:5, x:x+55, y:y+15, color:"brown"}, {height:5, width:5, x:x+50, y:y+25, color:"brown"}, /*Ears*/{height:10, width:5, x:x+50, y:y+15, color:"gold"}, /*Hat*/{height:10, width:5, x:x+55, y:y+15, color:"brown"}, {height:10, width:35, x:x+15, y:y+0, color:"red"}, {height:5, width:50, x:x+5, y:y+5, color:"red"},  /*Face*/{height:25, width:10, x:x+25, y:y+10, color:"gold"},  ];
 var rect1 = [{height:10,width:10,x:11,y:11,color:"purple"}];
 var rect2 = [{height:50,width:50,x:51,y:11,color:"purple"}];
-var rect22 = rect2[0];
+var rect2simple = rect2[0];
 canvas=document.getElementById("canvas");
 ctx=canvas.getContext("2d");
 console.log("canvas established");
@@ -12,7 +12,7 @@ console.log("canvas established");
 function drawNew() {
   rect = new rectangle(10,10,x,y,"purple");
   rect1render = new rectangle(rect1[0].height,rect1[0].width,rect1[0].x,rect1[0].y,rect1[0].color);
-  rect2render = new rectangle(rect22.height,rect22.width,rect22.x,rect22.y,rect22.color);
+  rect2render = new rectangle(rect2simple.height,rect2simple.width,rect2simple.x,rect2simple.y,rect2simple.color);
   char = new character(player);
   ctx.fillStyle="white";
 	ctx.fillRect(0,0,1000,500);
@@ -20,7 +20,7 @@ function drawNew() {
   rect1render.render();
   rect2render.render();
   rect.collisionDetect(rect1[0]);
-  rect.collisionDetect(rect22);
+  rect.collisionDetect(rect2simple);
 }
 // OPTIMIZE: fix this with Shivam to smooth
 function doKeyDown(a){
