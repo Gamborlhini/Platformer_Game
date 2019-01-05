@@ -9,7 +9,9 @@ canvas=document.getElementById("canvas");
 ctx=canvas.getContext("2d");
 console.log("canvas established");
 function gravity() {
-  y+=1;
+  if (ground=false) {
+    y+=1;
+  }
 }
 function drawNew() {
   rect = new rectangle(10,10,x,y,"purple");
