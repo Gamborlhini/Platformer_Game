@@ -1,24 +1,22 @@
-var canvas, ctx, x = 0, y = 0, dx = 5, dy = 5;
-var rect, char, groundclass, collision = false,grounded=false, imageObj = new Image();
+var canvas, ctx, x = 0, y = 0, dx = 5, dy = 20;
+var rect,gravityspeed=2, char, groundclass, collision = false,grounded=false, imageObj = new Image();
 imageObj.src="Capture.JPG";
 
-var rect1 = [{height:10,width:10,x:11,y:11,color:"purple"}];
-var rect2 = [{height:50,width:50,x:51,y:11,color:"purple"}];
+var rect1simple = {height:10,width:10,x:11,y:11,color:"purple"};
+var rect2simple = {height:50,width:50,x:51,y:11,color:"purple"};
 var ground = {height:10,width:1000,x:0,y:490,color:"brown"};
-var rect1simple = rect1[0];
-var rect2simple = rect2[0];
 canvas=document.getElementById("canvas");
 ctx=canvas.getContext("2d");
 console.log("canvas established");
 function gravity() {
   if (grounded==false) {
-    y+=4;
+    y+=gravityspeed;
   }
 }
 function drawNew() {
   rect = new rectangle(10,10,x,y,"purple");
   groundclass = new rectangle(ground.height,ground.width,ground.x,ground.y,ground.color);
-  rect1render = new rectangle(rect1[0].height,rect1[0].width,rect1[0].x,rect1[0].y,rect1[0].color);
+  rect1render = new rectangle(rect1simple.height,rect1simple.width,rect1simple.x,rect1simple.y,rect1simple.color);
   rect2render = new rectangle(rect2simple.height,rect2simple.width,rect2simple.x,rect2simple.y,rect2simple.color);
   ctx.fillStyle="white";
 	ctx.fillRect(0,0,1000,500);
@@ -30,7 +28,7 @@ function drawNew() {
   gravity();
 }
 function detectCollisions() {
-  rect.collisionDetect(rect1[0]);
+  rect.collisionDetect(rect1simple);
   rect.collisionDetect(rect2simple);
   rect.groundDetect(ground);
 }
