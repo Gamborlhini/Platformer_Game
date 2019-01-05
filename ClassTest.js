@@ -8,8 +8,10 @@ var ground = {height:10,width:1000,x:0,y:490,color:"brown"};
 canvas=document.getElementById("canvas");
 ctx=canvas.getContext("2d");
 console.log("canvas established");
+// BUG: You are always one block underneath the ground. I don't know if this is a groundDetect problem or gravity
+// BUG: You can chain jump
 function gravity() {
-  if (grounded==false) {
+  if (grounded==false&&collision==false) {
     y+=gravityspeed;
   }
 }
@@ -55,7 +57,7 @@ function doKeyDown(a){
       	break;
     	case 83:
       if (collision==false&&y<490&&grounded==false) {
-        y=y+dy;
+      //  y=y+dy;
       }
       else {
         console.log("we got a hit");
