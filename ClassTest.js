@@ -1,5 +1,6 @@
 var canvas, ctx, x = 0, y = 0, dx = 5, dy = 5;
-var rect, char, collision = false;
+var rect, char, collision = false, imageObj = new Image();
+imageObj.src="Capture.JPG";
 // OPTIMIZE: clean the uselessness
 var player = [ /*Eyes*/{height:10, width:5, x:x+20, y:y+10, color:"brown"},/*Mouth*/ {height:5, width:20, x:x+5, y:y+25, color:"brown"}, /*Nose*/{height:5, width:5, x:x+15, y:y+20, color:"brown"}, /*Back Hair*/{height:5, width:15, x:x+40, y:y+10, color:"brown"}, {height:10, width:5, x:x+45, y:y+15, color:"brown"}, {height:10, width:5, x:x+55, y:y+15, color:"brown"}, {height:5, width:5, x:x+50, y:y+25, color:"brown"}, /*Ears*/{height:10, width:5, x:x+50, y:y+15, color:"gold"}, /*Hat*/{height:10, width:5, x:x+55, y:y+15, color:"brown"}, {height:10, width:35, x:x+15, y:y+0, color:"red"}, {height:5, width:50, x:x+5, y:y+5, color:"red"},  /*Face*/{height:25, width:10, x:x+25, y:y+10, color:"gold"},  ];
 var rect1 = [{height:10,width:10,x:11,y:11,color:"purple"}];
@@ -16,7 +17,7 @@ function drawNew() {
   char = new character(player);
   ctx.fillStyle="white";
 	ctx.fillRect(0,0,1000,500);
-  rect.render();
+  ctx.drawImage(imageObj, x,y,10,10);
   rect1render.render();
   rect2render.render();
   rect.collisionDetect(rect1[0]);
