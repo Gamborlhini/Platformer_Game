@@ -19,10 +19,10 @@ var rect, shooting = false,
   imagePortal = new Image(),
   imageCoin = new Image(),
   imageEnemy = new Image();
-imageObj.src = "Slime.JPG";
-imagePortal.src = "EndPortal.png";
-imageCoin.src = "Coin.png";
-imageEnemy.src = "Enemy.png";
+imageObj.src = "../imgs/Slime.JPG";
+imagePortal.src = "../imgs/EndPortal.png";
+imageCoin.src = "../imgs/Coin.png";
+imageEnemy.src = "../imgs/Enemy.png";
 var splat = document.getElementById("splat");
 var grounds = [];
 var belowgrounds = [];
@@ -81,7 +81,7 @@ function winDetect(thiss, platform) {
 }
 function winRedirect() {
   if (winblock == true) {
-    location.assign("LevelFive.html");
+    location.assign("../html/LevelFive.html");
   }
 }
 function shotDetect(enemy) {
@@ -486,7 +486,7 @@ function doKeyDown(a) {
       if (collision == false && x > 0) {
         velocityleft = speedleft;
         direction = "left";
-        imageObj.src = "Slime.JPG";
+        imageObj.src = "../imgs/Slime.JPG";
         //player=playerLeft;
       } else {
         console.log("we got a hit");
@@ -497,7 +497,7 @@ function doKeyDown(a) {
       if (collision == false && x < 980) {
         velocityright = speedright;
         direction = "right";
-        imageObj.src = "Slime.JPG";
+        imageObj.src = "../imgs/Slime.JPG";
         //x=x+dx
         //player=playerRight;
       } else {
