@@ -21,12 +21,12 @@ var rect, shooting = false,
   imageMortar = new Image(),
   imageMortarshot = new Image(),
   imageEnemy = new Image();
-imageObj.src = "Slime.JPG";
-imagePortal.src = "EndPortal.png";
-imageCoin.src = "Coin.png";
-imageEnemy.src = "Enemy.png";
-imageMortar.src = "Mortar.png";
-imageMortarshot.src = "Mortarshot.png";
+imageObj.src = "../imgs/Slime.JPG";
+imagePortal.src = "../imgs/EndPortal.png";
+imageCoin.src = "../imgs/Coin.png";
+imageEnemy.src = "../imgs/Enemy.png";
+imageMortar.src = "../imgs/Mortar.png";
+imageMortarshot.src = "../imgs/Mortarshot.png";
 var grounds = [];
 var belowgrounds = [];
 var splatsound = document.getElementById("splat");
@@ -97,7 +97,7 @@ function winDetect(thiss, platform) {
 }
 function winRedirect() {
   if (winblock == true) {
-    location.assign("LevelEight.html");
+    location.assign("../html/LevelEight.html");
   }
 }
 //Reloading function. Times how fast you can reload.
