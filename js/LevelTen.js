@@ -39,23 +39,23 @@ var rect, shooting = false,
   imagePillar8 = new Image();
   imagePillar9 = new Image();
   imagePillar10 = new Image();
-imageObj.src = "Slime.JPG";
-imagePortal.src = "EndPortal.png";
-imageCoin.src = "Coin.png";
-imageSword.src = "Sword.png";
-imageEnemy.src = "Enemy.png";
+imageObj.src = "../imgs/Slime.JPG";
+imagePortal.src = "../imgs/EndPortal.png";
+imageCoin.src = "../imgs/Coin.png";
+imageSword.src = "../imgs/Sword.png";
+imageEnemy.src = "../imgs/Enemy.png";
 imageBossMaster.src;
-imageBossArray = ["BossCharge0.png", "BossCharge1.png", "BossCharge2.png", "BossCharge3.png", "BossCharge4.png", "BossCharge5.png", "BossCharge6.png", "BossCharge7.png"]
-imagePillar1.src = "PillarStageTen.png";
-imagePillar2.src = "PillarStageNine.png";
-imagePillar3.src = "PillarStageEight.png";
-imagePillar4.src = "PillarStageSeven.png";
-imagePillar5.src = "PillarStageSix.png";
-imagePillar6.src = "PillarStageFive.png";
-imagePillar7.src = "PillarStageFour.png";
-imagePillar8.src = "PillarStageThree.png";
-imagePillar9.src = "PillarStageTwo.png";
-imagePillar10.src = "PillarStageOne.png";
+imageBossArray = ["../imgs/boss/BossCharge0.png", "../imgs/boss/BossCharge1.png", "../imgs/boss/BossCharge2.png", "../imgs/boss/BossCharge3.png", "../imgs/boss/BossCharge4.png", "../imgs/boss/BossCharge5.png", "../imgs/boss/BossCharge6.png", "../imgs/boss/BossCharge7.png"]
+imagePillar1.src = "../imgs/boss/PillarStageTen.png";
+imagePillar2.src = "../imgs/boss/PillarStageNine.png";
+imagePillar3.src = "../imgs/boss/PillarStageEight.png";
+imagePillar4.src = "../imgs/boss/PillarStageSeven.png";
+imagePillar5.src = "../imgs/boss/PillarStageSix.png";
+imagePillar6.src = "../imgs/boss/PillarStageFive.png";
+imagePillar7.src = "../imgs/boss/PillarStageFour.png";
+imagePillar8.src = "../imgs/boss/PillarStageThree.png";
+imagePillar9.src = "../imgs/boss/PillarStageTwo.png";
+imagePillar10.src = "../imgs/boss/PillarStageOne.png";
 var splatsound = document.getElementById("splat");
 var swordsound = document.getElementById("sword");
 var bosssound = document.getElementById("boss");
@@ -121,7 +121,7 @@ function winDetect(thiss, platform) {
 }
 function winRedirect() {
   if (winblock == true) {
-    location.assign("Victory.html");
+    location.assign("../html/Victory.html");
   }
 }
 function shotDetect(enemy) {
@@ -679,7 +679,7 @@ function doKeyDown(a) {
       if (collision == false && x > 0) {
         velocityleft = speedleft;
         direction = "left";
-        imageObj.src = "Slime.JPG";
+        imageObj.src = "../imgs/Slime.JPG";
         //player=playerLeft;
       } else {
         console.log("we got a hit");
@@ -690,7 +690,7 @@ function doKeyDown(a) {
       if (collision == false && x < 980) {
         velocityright = speedright;
         direction = "right";
-        imageObj.src = "Slime.JPG";
+        imageObj.src = "../imgs/Slime.JPG";
         //x=x+dx
         //player=playerRight;
       } else {
