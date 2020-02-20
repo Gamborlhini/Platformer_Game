@@ -607,7 +607,7 @@ function doKeyDown(a) {
       if (collision == false && x > 0) {
         velocityleft = speedleft;
         direction = "left";
-        imageObj.src = "Slime.JPG";
+        imageObj.src = "../imgs/Slime.JPG";
         //player=playerLeft;
       } else {
         console.log("we got a hit");
@@ -618,7 +618,7 @@ function doKeyDown(a) {
       if (collision == false && x < 980) {
         velocityright = speedright;
         direction = "right";
-        imageObj.src = "Slime.JPG";
+        imageObj.src = "../imgs/Slime.JPG";
         //x=x+dx
         //player=playerRight;
       } else {
