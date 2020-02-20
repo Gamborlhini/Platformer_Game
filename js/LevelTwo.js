@@ -21,12 +21,12 @@ var rect, shooting = false,
   imageLeftLadder = new Image(),
   imageRightLadder = new Image(),
   imageEnemy = new Image();
-imageObj.src = "Slime.JPG";
-imagePortal.src = "EndPortal.png";
-imageCoin.src = "Coin.png";
-imageEnemy.src = "Enemy.png";
-imageLeftLadder.src = "RightLadder.png";
-imageRightLadder.src = "LeftLadder.png";
+imageObj.src = "../imgs/Slime.JPG";
+imagePortal.src = "../imgs/EndPortal.png";
+imageCoin.src = "../imgs/Coin.png";
+imageEnemy.src = "../imgs/Enemy.png";
+imageLeftLadder.src = "../imgs/RightLadder.png";
+imageRightLadder.src = "../imgs/LeftLadder.png";
 var grounds = [];
 var belowgrounds = [];
 for (var i = 0; i < 5; i++) {
@@ -83,7 +83,7 @@ function winDetect(thiss, platform) {
 }
 function winRedirect() {
   if (winblock == true) {
-    location.assign("LevelThree.html");
+    location.assign("../html/LevelThree.html");
   }
 }
 //Reloading function. Times how fast you can reload.
@@ -480,7 +480,7 @@ function doKeyDown(a) {
       if (collision == false && x > 0) {
         velocityleft = speedleft;
         direction = "left";
-        imageObj.src = "Slime.JPG";
+        imageObj.src = "../imgs/Slime.JPG";
         //player=playerLeft;
       } else {
         console.log("we got a hit");
@@ -497,7 +497,7 @@ function doKeyDown(a) {
       if (collision == false && x < 980) {
         velocityright = speedright;
         direction = "right";
-        imageObj.src = "Slime.JPG";
+        imageObj.src = "../imgs/Slime.JPG";
         //x=x+dx
         //player=playerRight;
       } else {
